@@ -23,3 +23,16 @@ function getToken() {
   //back to '' before committing so all tests pass
   return '9514e7659812c4aa5efcbeee3fd6ff7e5b9045f7'
 }
+
+const token = 'YOUR_TOKEN_HERE';
+const postData = {
+  body: 'Great stuff'
+};
+
+fetch('https://api.github.com/repos/:your_ghname/:your_repo/commits/:sha/comments', {
+  method: 'POST',
+  body: JSON.stringify(postData),
+  headers: {
+    Authorization: `token ${token}`
+  }
+}).then(res => console.log(res));
